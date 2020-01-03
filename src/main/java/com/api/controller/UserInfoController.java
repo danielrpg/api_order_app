@@ -2,7 +2,6 @@ package com.api.controller;
 
 import com.api.exception.ValidationException;
 import com.api.model.UserInfo;
-import com.api.repository.UserInfoRepository;
 import com.api.service.UserInfoService;
 import com.api.util.URLConstants;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

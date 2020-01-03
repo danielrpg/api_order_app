@@ -12,7 +12,7 @@ public class Carrier {
 
     private String companyName;
 
-    private Carrier(Long id, String companyName) {
+    public Carrier(Long id, String companyName) {
         this.id = id;
         this.companyName = companyName;
     }
