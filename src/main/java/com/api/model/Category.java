@@ -1,16 +1,22 @@
 package com.api.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(max = 250)
+    @Column(unique = true)
     private String categoryName;
+
+    @Size(max = 500)
+    @Column(unique = true)
     private String categoryDescription;
 
     public Category(Long id, String categoryName, String categoryDescription) {

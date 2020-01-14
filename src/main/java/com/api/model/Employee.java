@@ -1,36 +1,43 @@
 package com.api.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends AuditModel {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "employee_id")
     private int id;
 
+    @NotNull
+    @Size(max = 200)
     private String nameEmployee;
+
+    @NotNull
+    @Size(max = 200)
     private String lastNameEmployee;
+
+    @Size(max = 200)
     private String chargeEmployee;
+
+    @Size(max = 200)
     private String directionEmployee;
+
+    @Size(max = 200)
     private String telephoneEmployee;
+
     private Date dateOfBirth;
+
+    @NotNull
+    @Size(max = 200)
     private Date hiringDate;
-
-    public Employee() {
-    }
-
-    public Employee(String nameEmployee, String lastNameEmployee, String chargeEmployee, String directionEmployee, String telephoneEmployee, Date dateOfBirth, Date hiringDate) {
-        this.nameEmployee = nameEmployee;
-        this.lastNameEmployee = lastNameEmployee;
-        this.chargeEmployee = chargeEmployee;
-        this.directionEmployee = directionEmployee;
-        this.telephoneEmployee = telephoneEmployee;
-        this.dateOfBirth = dateOfBirth;
-        this.hiringDate = hiringDate;
-    }
 
     public int getId() {
         return id;

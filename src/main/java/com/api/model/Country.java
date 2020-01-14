@@ -1,22 +1,32 @@
 package com.api.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "contries")
-public class Country {
+@Table(name = "countries")
+public class Country extends AuditModel {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(max = 100)
     private String countryName;
+
+    @NotNull
+    @Size(max = 100)
+    @Column(unique = true)
     private String countryCode;
 
     public Country() {
     }
 
-    public Country(String countryName, String countryCode) {
+    public Country(@NotNull @Size(max = 100) String countryName, @NotNull @Size(max = 100) String countryCode) {
         this.countryName = countryName;
         this.countryCode = countryCode;
     }

@@ -1,15 +1,16 @@
 ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 spring:
    datasource:
-     url: jdbc:mysql://localhost:3306/api_dbv1
+     url: jdbc:mysql://localhost:3306/api_dbv1?useSSL=false
      username: root
      password: 123456
    jpa:
      properties:
        hibernate:
          dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
      hibernate:
        ddl-auto: create-drop
-
+     show-sql: true
 jwt:
   secret: 12365testsecret
